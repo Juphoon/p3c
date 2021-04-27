@@ -20,9 +20,14 @@ Juphoon的[《Java编程指南》](https://juphoon.yuque.com/staff-upaale/rlxihh
 - [idea-plugin](https://github.com/Juphoon/p3c/blob/master/idea-plugin) - IntelliJ IDEA 插件
 - [eclipse-plugin](https://github.com/Juphoon/p3c/blob/master/eclipse-plugin) - Eclipse 插件
 
+
 <br>
 
 ## 构建 p3c-pmd 工具
+
+(**! 工程师无需构建p3c-pmd工具，直接下载使用，见【为本地项目安装静态检查工具】部分**)
+
+<br>
 
 **Requirement**
 - JDK 1.7+
@@ -72,7 +77,7 @@ $ ./install.sh
 ```
 
 ### STEP 3 - 安装git pre-commit hook
-将**juphoon-p3c-pmd**安装到指定目录后，我们需要将**pre-commit**复制到需要检查的项目的**.git**目录下。假设要检查的项目根目录是**/Users/xiali/GitHub/naive_java**：
+将**juphoon-p3c-pmd**安装到指定目录后，我们需要将**pre-commit**复制到需要检查的项目的.git目录下。假设要检查的项目根目录是**/Users/xiali/GitHub/naive_java**：
 
 ```console
 $ cp pre-commit /Users/xiali/GitHub/naive_java/.git/hooks/.
