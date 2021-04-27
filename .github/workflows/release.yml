@@ -30,7 +30,7 @@ jobs:
     - name: Build with Maven
       run: |
         mvn -B package --file p3c-pmd/pom.xml
-        zip --junk-paths juphoon-p3c-pmd p3c-pmd/target/*.jar
+        zip --junk-paths juphoon-p3c-pmd-installer p3c-pmd/target/*.jar p3c-pmd/scripts/*
       
     
     - name: Create Release
@@ -51,6 +51,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./juphoon-p3c-pmd.zip
-        asset_name: juphoon-p3c-pmd.zip
+        asset_path: ./juphoon-p3c-pmd-installer.zip
+        asset_name: juphoon-p3c-pmd-installer.zip
         asset_content_type: application/zip
