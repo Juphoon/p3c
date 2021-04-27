@@ -66,13 +66,15 @@ $ mvn package
 - pre-commit - git pre-commit hook 脚本
 
 解压后，直接执行install.sh
-```
+
+```console
 $ ./install.sh
 ```
 
 ### STEP 3 - 安装git pre-commit hook
 将**juphoon-p3c-pmd**安装到指定目录后，我们需要将**pre-commit**复制到需要检查的项目的**.git**目录下。假设要检查的项目根目录是**/Users/xiali/GitHub/naive_java**：
-```
+
+```console
 $ cp pre-commit /Users/xiali/GitHub/naive_java/.git/hooks/.
 ```
 
@@ -81,7 +83,8 @@ $ cp pre-commit /Users/xiali/GitHub/naive_java/.git/hooks/.
 
 ## 范例
 静态检查会在每次**git commit**时作为前置动作执行。我们尝试对以下代码进行静态检查：
-```
+
+```java
 package hello;
 
 /**
@@ -107,7 +110,8 @@ public class Hello {
 ```
 
 当执行`git commit`时，违反规约的情况将会捕获，用户无法提交代码到本地分支：
-```
+
+```console
 $ git commit                                                                                                                              ✔  653  16:34:11
 [Juphoon-p3c-pmd][Info] 入库前检查启动...
 
