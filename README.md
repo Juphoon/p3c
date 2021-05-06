@@ -70,7 +70,7 @@ $ mvn package
 - install.sh - 安装脚本
 - pre-commit - git pre-commit hook 脚本
 
-解压后，直接执行install.sh
+解压后，直接执行install.sh（macOS或Linux)，或install.bat（windows 7+)
 
 ```console
 $ ./install.sh
@@ -82,6 +82,9 @@ $ ./install.sh
 ```console
 $ cp pre-commit /Users/xiali/GitHub/naive_java/.git/hooks/.
 ```
+
+⚠️ 如果是在Windows 7+上使用Git Hooks, 请确保安装的是[Git for Windows](https://git-scm.com/download/win), 因为它通过Cygwin提供了Bash commands和shell scripts的基本支持。
+在将**juphoon-p3c-pmd**安装到指定目录后，将**pre-commit_for_windows**重命名为**pre-commit**，并将其复制到需要检查的项目的.git目录下。
 
 
 <br>
