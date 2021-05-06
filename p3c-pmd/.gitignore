@@ -22,7 +22,6 @@ target/**
 *.iml
 *.ipr
 *.iws
-*.bat
 
 # Eclipse git ignore#
 *.pydevproject
