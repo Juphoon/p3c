@@ -1,0 +1,32 @@
+#!C:/Program\ Files/Git/usr/bin/sh.exe
+# Git for Windows supports Bash commands and shell scripts via Cygwin. So it should run on top of Cygwin.
+#
+# author:  	Harvey Li
+# last updated: 2021/04/27 
+#
+# This is the pre-commit hook script to verify if codes fulfill the standard from Juphoon's Java Style Guide.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+
+# Font color
+c_red="\033[33;31m"
+c_green="\033[33;32m"
+c_blue="\033[33;34m"
+
+jar_path="${HOME}/juphoon/dev_tools/juphoon-p3c-pmd.jar"
+
+if [ ! -e ${jar_path} ]
+then
+    echo "${c_blue}[Juphoon-p3c-pmd] ${c_red}Fatal - 无法检测到p3c-pmd工具，请确保工具是否存在(path:${jar_path})"
+    exit 1
+fi
+
+echo "[Juphoon-p3c-pmd][Info] 入库前检查启动...\r\n"
+
+if ! java -cp ${jar_path} net.sourceforge.pmd.PMD -d . -R rulesets/java/juphoon.xml 2>/dev/null; then
+    echo "\r\n${c_blue}[Juphoon-p3c-pmd] ${c_red}Fail - 未通过静态检查！请确保代码符合【强制】中的规约要求，详见菊风《Java编码指南》。"
+    exit 1
+fi
+
+echo "\r\n${c_blue}[Juphoon-p3c-pmd] ${c_green}Pass - 静态检查已通过！"
